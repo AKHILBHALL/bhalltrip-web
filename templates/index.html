@@ -1,0 +1,106 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html>
+<head>
+ <title>bhalltrips</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1," >
+<style>
+body {
+  background-image:url("{% static 'images/backgroundtrips.jpg' %}");
+  margin: 0;
+  background-repeat:no-repeat;
+  border:black;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a:active {
+  background-color: #4CAF50;
+  color: white;
+}
+ 
+.bgimg {
+        background-image:url("{% static 'images/visapurfront.jpg' %}");
+        border: black;
+        width: 1000%;
+        height: 700px;
+    }
+
+.fill
+{
+  /* background-image:url("{% static 'images/A.jpg' %}"); */
+    background-color: rgb(65, 65, 65);
+}
+  </style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="active" href="#home">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Home</a>
+  <a href="#gallery">&ensp;&ensp;&ensp;&ensp;Gallery</a>
+  <a href="accounts/login">&ensp;&ensp;&ensp;&ensp;Login</a>
+  <a href="#contact">&ensp;&ensp;&ensp;&ensp;Contact us:</a>  
+  <p style="color: #ddd;">&nbsp;&nbsp;&nbsp;&nbsp;akhilbhall123@gmail.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;AKHIL BHALL</p>
+</div>
+
+<div class = "bgimg">
+  <!-- {{STATIC_URL}}  -->
+
+  <h1 style="font-size: 50px;"><b>Welcome to the city of forts</b> </h1>
+  <h4></h4>
+  <br>
+  <br>
+  <br>
+  <h3 style="color:black;"></h3>
+</div>
+   {% for dest in dests %}
+<div>
+    <h2><u>{{dest.title}}</u></h2>
+       <img src="{{dest.img.url}}" style="width: 30%;" style="height: 20px;">
+      <p><b>{{dest.desc}}</b>></p>
+       
+</div>
+   {% endfor %}
+
+
+  <div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <marquee>
+      <div style="background-color: black;" ><h1 style="color:#ddd;">BHALL TRIPS &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;BHALL TRIPS&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;BHALL TRIPS</h1></div>
+    
+    </marquee>
+    
+     
+    <h2><u><b> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;POST SUGGESTIONS AND NEW DESTINATIONS!!</b></u></h2>
+    <form method="POST" class="post-form">{% csrf_token %}
+    {% csrf_token %}
+    {{ form.as_p }}
+      <button>Submit</button>
+
+    </div>    
+     </body>
+     </html>
